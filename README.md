@@ -55,11 +55,15 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
-4. Run app in project directory
+4.  In the root directory of the project include a .env file with
+   ```sh
+   REACT_APP_POKEAPI="https://pokeapi.co/api/v2";
+   ```
+5. Run app in project directory
    ```sh
    npm start;
    ```
-5. Launches the test runner in the interactive watch mode See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. Launches the test runner in the interactive watch mode See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
    ```sh
    npm test;
    ```
