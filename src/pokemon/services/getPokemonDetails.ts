@@ -1,3 +1,5 @@
+//Pega os detalhes dos pokemons a partir da API
+
 import axios from "axios";
 import { PokemonDetail } from "../interfaces/PokemonDetail";
 

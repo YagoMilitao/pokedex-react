@@ -1,3 +1,5 @@
+//Todos os atributos de um pokemon vindo da API
+
 // To parse this data:
 //
 //   import { Convert,PokemonDetail } from "./file";
