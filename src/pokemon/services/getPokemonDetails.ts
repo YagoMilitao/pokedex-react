@@ -8,5 +8,8 @@ export  async function getPokemonDetails(name:string): Promise<PokemonDetail>{
 
     const response = await axios.get<PokemonDetail>(endpoint);
 
+    // await 2 seconds to simulate slow internet
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     return response.data
 }

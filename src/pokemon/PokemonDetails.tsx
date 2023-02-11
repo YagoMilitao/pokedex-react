@@ -1,19 +1,11 @@
-import { Box, AppBar, Toolbar, IconButton, Typography, Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-
-import Button from '@mui/material/Button';
-
 import MenuIcon from '@mui/icons-material/Menu';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import { PokemonDetail } from './interfaces/PokemonDetail';
 import { getPokemonDetails } from './services/getPokemonDetails';
-import { listPokemons, PokemonListInterface } from './services/listPokemons';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
+import { Container, Box } from '@mui/system';
+import { useQuery } from 'react-query';
 
 interface PokemonDetailsProps {
     
@@ -24,21 +16,34 @@ interface PokemonQueryParams{
 }
 
 export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
-    let {name} = useParams<PokemonQueryParams>();
-    const [selectedPokemonDetails, setSelectedPokemonDetails] = useState<PokemonDetail | undefined>(undefined)
+  //Volta para a página sem precisar de reload(vai apresentar a mesma tela que tava antes)
+  const {goBack} = useHistory();
+  let {name} = useParams<PokemonQueryParams>();
+  //const [selectedPokemonDetails, setSelectedPokemonDetails] = useState<PokemonDetail | undefined>(undefined)
     
 
-    useEffect(() => {
-        if(!name) return;
+  /*useEffect(() => {
+    if(!name) return;
 
-        getPokemonDetails(name)
-        .then((res) =>setSelectedPokemonDetails(res))
+    getPokemonDetails(name)
+    .then((res) =>setSelectedPokemonDetails(res))
 
-    }, [name]);
+  }, [name]);*/
+  const{data} = useQuery(`getPokmeonDetails-${name}`, () =>getPokemonDetails(name));
+  const selectedPokemonDetails = data;
+
+  /*useEffect(() => {
+    getPokemonDetails(name).then((res) =>{
+      setSelectedPokemonDetails(res);
+    })
+  }, [name]);*/
     return (
         <div>
             <AppBar position="static">
               <Toolbar>
+              <Button onClick={goBack}>
+                Voltar
+              </Button>
                 <IconButton
                   size="large"
                   edge="start"
@@ -53,12 +58,48 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
               </Toolbar>
             </AppBar>
             <Container maxWidth = "lg">
-                <Box mt={2}>
-                  <img src={selectedPokemonDetails?.sprites.front_default} alt=""/>
-                  Pokemon selecionado: {name}
-                  {JSON.stringify(selectedPokemonDetails?.sprites, undefined,2)}
-                  
-                </Box>
+              <Box mt={2}>
+                <img width='100%' height='auto'src={selectedPokemonDetails?.sprites.front_default} alt=""/>
+              </Box>
+              <Box>
+                <Typography variant='h2'>
+                  Nome:
+                {selectedPokemonDetails?.name}
+              </Typography>
+              </Box>
+              <Box display="flex" flexDirection='row'>
+                <Typography>
+                  Tipo:
+                {selectedPokemonDetails?.types.map((type) => <Typography>{type.type.name}</Typography>)}
+                </Typography>
+              </Box>
+              <Box display="flex" flexDirection='row'>
+                <Typography variant='body1'>
+                  Especie: 
+                  {selectedPokemonDetails?.species.name}
+                </Typography>
+              </Box>
+              <Box display="flex" flexDirection='row'>
+                <Typography>
+                  Altura:
+                  {selectedPokemonDetails?.height}
+                </Typography>
+              </Box>
+              <Box display="flex" flexDirection='row'>
+                <Typography>
+                  Peso:
+                  {selectedPokemonDetails?.weight}
+                </Typography>
+              </Box>
+              <Box display="flex" flexDirection='row'>
+                <Typography>
+                  Habilidades:
+                  {selectedPokemonDetails?.abilities.map((ability) => <Typography>{ability.ability.name}</Typography>)}
+                </Typography>
+              </Box>
+
+              
+                
             </Container>            
         </div>
     );
