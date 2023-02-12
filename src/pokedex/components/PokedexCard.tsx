@@ -1,4 +1,5 @@
-import { Card, CardMedia, CardHeader, Chip } from '@mui/material';
+import { Favorite } from '@mui/icons-material';
+import { Card, CardMedia, CardHeader, Chip, CardActions, IconButton } from '@mui/material';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -31,15 +32,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
   const history = useHistory();
-  const [expanded, setExpanded] = React.useState(false);
   
   function handleClick() {
     history.push(`/pokemon/${pokemon.name}`);
   }  
   
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   return (
     <Card onClick={handleClick} >
       <CardMedia
@@ -51,6 +48,12 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
       title={pokemon.name}
       subheader={pokemon.types.map((type)=> <Chip label={type.type.name} variant="outlined"/>)}
     />
+    <CardActions disableSpacing>
+      <IconButton>
+        <Favorite />
+        
+      </IconButton>
+    </CardActions>
   </Card>
     );
 };

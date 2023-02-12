@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-import { PokemonDetail } from './interfaces/PokemonDetail';
 import { getPokemonDetails } from './services/getPokemonDetails';
 import { useHistory, useParams } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
@@ -69,8 +68,12 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
               </Box>
               <Box display="flex" flexDirection='row'>
                 <Typography>
-                  Tipo:
-                {selectedPokemonDetails?.types.map((type) => <Typography>{type.type.name}</Typography>)}
+                  Type:
+                  
+                  {
+                    selectedPokemonDetails?.types.map((type) => 
+                    <Typography>{type.type.name}</Typography>)
+                  }
                 </Typography>
               </Box>
               <Box display="flex" flexDirection='row'>

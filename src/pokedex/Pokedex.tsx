@@ -1,14 +1,13 @@
 
 import React, {  } from 'react';
 import { listPokemons } from '../pokemon/services/listPokemons';
-import { AppBar, Button, CircularProgress, Container, Grid, IconButton, LinearProgress, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, CircularProgress, Container, Grid, IconButton, LinearProgress, Toolbar, Typography } from '@mui/material';
 import { PokedexCard } from './components/PokedexCard';
 //import { useQuery } from 'react-query/types/react';
 import { useQuery } from 'react-query';
-
-
 import MenuIcon from '@mui/icons-material/Menu';
 import { PokemonDetail } from '../pokemon/interfaces/PokemonDetail';
+import { More } from '@mui/icons-material';
 
 interface PokedexProps {
     
@@ -23,7 +22,6 @@ export const Pokedex: React.FC<PokedexProps> = () => {
             //lê↓    modifica↓
    // const [pokemons, setPokemons] = useState<PokemonDetail[]>([])
 
-  
   const {data, isLoading, isRefetching, refetch, isStale} = useQuery(`listPokemons`, listPokemons);
 
     /*useEffect(() => {
@@ -32,41 +30,59 @@ export const Pokedex: React.FC<PokedexProps> = () => {
 
    
     return (
-      <div>
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton edge="start" color="inherit" size="large">
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6">
-                Pokedex
-              </Typography>
-            </Toolbar>
-            {isRefetching && <LinearProgress variant='indeterminate' color='secondary' />}
-          </AppBar>
+      <Box sx ={{ flexGrow:1}}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton edge="start" color="inherit" size="large">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6">
+              Pokedex deploy automatizado
+            </Typography>
+            <Box sx={{ flexGrow: 1}} />
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-haspopup="true"
+                color="inherit"
+              >
+              <More />
+            </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        {
+          isRefetching && <LinearProgress variant='indeterminate' color='secondary' />
+        }
         <Container maxWidth="lg">
-          <div style={{marginTop: `1em`}}></div>
-          {isStale &&(
-            <Button disabled={isRefetching} variant='outlined' onClick={()=>refetch()}>Refetch</Button>
-          )}
-          <div style={{marginTop: `1em`}}></div>
-         {!isLoading?(
+          <div style={{marginTop: `1em`}}/>
+          {
+            isStale &&(
+              <Button disabled={isRefetching} variant='outlined' onClick={()=>refetch()}>Refetch</Button>
+            )
+          }
+          <div style={{marginTop: `1em`}}/>
+         {
+          !isLoading?(
           <>
              <Grid container spacing={2} >
-               {data?.results.map((pokemon: PokemonDetail) => (
+              {
+                data?.results.map((pokemon: PokemonDetail) => (
                  <>
                    <Grid item xs={6} lg={3}>
                      <PokedexCard pokemon={pokemon}/>
                    </Grid>
                  </>
-                 ))}
+                ))
+              }
              </Grid>
           </>
           ):(
               <div><CircularProgress/></div>
           )}
         </Container>
-      </div>
+      </Box>
     );
 };
 
