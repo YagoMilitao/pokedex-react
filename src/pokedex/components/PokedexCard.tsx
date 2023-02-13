@@ -1,4 +1,3 @@
-import { Favorite } from '@mui/icons-material';
 import { Card, CardMedia, CardHeader, Chip, CardActions, IconButton } from '@mui/material';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
@@ -46,12 +45,11 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
     />
     <CardHeader
       title={pokemon.name}
-      subheader={pokemon.types.map((type)=> <Chip label={type.type.name} variant="outlined"/>)}
+      subheader={pokemon.types.map((type)=> 
+        <Chip label={type.type.name} variant="outlined"/>)}
     />
     <CardActions disableSpacing>
       <IconButton>
-        <Favorite />
-        
       </IconButton>
     </CardActions>
   </Card>

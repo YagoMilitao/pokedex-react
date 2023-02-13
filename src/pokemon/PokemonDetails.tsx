@@ -2,7 +2,7 @@ import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { getPokemonDetails } from './services/getPokemonDetails';
 import { useHistory, useParams } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Typography, Button, LinearProgress, CircularProgress } from '@mui/material';
 import { Container, Box } from '@mui/system';
 import { useQuery } from 'react-query';
 
@@ -28,7 +28,13 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
     .then((res) =>setSelectedPokemonDetails(res))
 
   }, [name]);*/
-  const{data} = useQuery(`getPokmeonDetails-${name}`, () =>getPokemonDetails(name));
+  const{data, isRefetching, isLoading} = useQuery(`getPokmeonDetails-${name}`, 
+    () =>getPokemonDetails(name),
+    {
+      cacheTime: 1000*60*60,
+      staleTime: 20000,
+    }
+  );
   const selectedPokemonDetails = data;
 
   /*useEffect(() => {
@@ -36,6 +42,12 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
       setSelectedPokemonDetails(res);
     })
   }, [name]);*/
+  if (isLoading){
+    return(
+      <div><CircularProgress/></div>
+    )
+  }
+
     return (
         <div>
             <AppBar position="static">
@@ -52,10 +64,11 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
                   <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                {name}
+                  {selectedPokemonDetails?.name.toUpperCase()}
                 </Typography>
               </Toolbar>
             </AppBar>
+            {isRefetching && <LinearProgress />}
             <Container maxWidth = "lg">
               <Box mt={2}>
                 <img width='100%' height='auto'src={selectedPokemonDetails?.sprites.front_default} alt=""/>
@@ -63,23 +76,22 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
               <Box>
                 <Typography variant='h2'>
                   Nome:
-                {selectedPokemonDetails?.name}
+                {selectedPokemonDetails?.name.toLocaleUpperCase()}
               </Typography>
               </Box>
               <Box display="flex" flexDirection='row'>
                 <Typography>
                   Type:
-                  
                   {
                     selectedPokemonDetails?.types.map((type) => 
-                    <Typography>{type.type.name}</Typography>)
+                      {return type.type.name.toLocaleUpperCase()}).join(', ')
                   }
                 </Typography>
               </Box>
               <Box display="flex" flexDirection='row'>
                 <Typography variant='body1'>
                   Especie: 
-                  {selectedPokemonDetails?.species.name}
+                  {selectedPokemonDetails?.species.name.toLocaleUpperCase()}
                 </Typography>
               </Box>
               <Box display="flex" flexDirection='row'>
@@ -97,7 +109,8 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
               <Box display="flex" flexDirection='row'>
                 <Typography>
                   Habilidades:
-                  {selectedPokemonDetails?.abilities.map((ability) => <Typography>{ability.ability.name}</Typography>)}
+                  {selectedPokemonDetails?.abilities.map((ability) =>
+                    ability.ability.name.toLocaleUpperCase()).join(', ')}
                 </Typography>
               </Box>
 

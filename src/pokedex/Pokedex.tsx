@@ -37,7 +37,7 @@ export const Pokedex: React.FC<PokedexProps> = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6">
-              Pokedex deploy automatizado
+              Pokedex
             </Typography>
             <Box sx={{ flexGrow: 1}} />
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
