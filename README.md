@@ -1,3 +1,21 @@
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+![FileCount][file-count-shield]
+![RepoSize][repo-size-shield]
+![FileLine][file-line-shield]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -10,17 +28,8 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+  
+ Project deployed in: https://pokedex-react-typescript.web.app/
 
 ### Built With
 
@@ -68,27 +77,6 @@ This is an example of how to list things you need to use the software and how to
    npm test;
    ```
 
-
-
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -107,16 +95,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
-
-
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See [LICENSE](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) for more information.
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -124,7 +106,6 @@ Distributed under the MIT License. See [LICENSE](https://docs.github.com/en/repo
 yagomilitao@alunos.utfpr.edu.br
 
 Project Link: [https://github.com/YagoMilitao/pokedex-react](https://github.com/YagoMilitao/pokedex-react)
-
 
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -140,8 +121,6 @@ Project Link: [https://github.com/YagoMilitao/pokedex-react](https://github.com/
 <!-- * [Sticky Kit](http://leafo.net/sticky-kit) -->
 <!-- * [JVectorMap](http://jvectormap.com) -->
 <!-- * [Font Awesome](https://fontawesome.com) -->
-
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -162,6 +141,11 @@ Project Link: [https://github.com/YagoMilitao/pokedex-react](https://github.com/
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[file-count-shield]: https://img.shields.io/github/directory-file-count/YagoMilitao/pokedex-react
+[filecount-url]: https://github/directory-file-count/YagoMilitao/pokedex-react
+[repo-size-shield]: https://img.shields.io/github/repo-size/YagoMilitao/pokedex-react
+[reposize-url]: https://github/repo-size/YagoMilitao/pokedex-react
+[file-line-shield]:https://img.shields.io/tokei/lines/github/YagoMilitao/pokedex-react
+[file-url]: https://github/YagoMilitao/pokedex-react
 
 [product-screenshot]: public/Pokedex.png
-
