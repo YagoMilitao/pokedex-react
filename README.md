@@ -87,7 +87,9 @@ This is an example of how to list things you need to use the software and how to
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
+[![FileCount][file-count-shield][filecount-url]
+[![RepoSize][repo-size-shield][reposize-url]
+[![FileLine][file-line-shield][file-url]
 
 ## Learn More
 
@@ -162,6 +164,12 @@ Project Link: [https://github.com/YagoMilitao/pokedex-react](https://github.com/
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[file-count-shield]: https://img.shields.io/github/directory-file-count/YagoMilitao/pokedex-react
+[filecount-url]: https://github/directory-file-count/YagoMilitao/pokedex-react
+[repo-size-shield]: https://img.shields.io/github/repo-size/YagoMilitao/pokedex-react
+[reposize-url]: https://github/repo-size/YagoMilitao/pokedex-react
+[file-line-shield]:https://img.shields.io/tokei/lines/github/YagoMilitao/pokedex-react
+[file-url]: https://github/YagoMilitao/pokedex-react
 
 [product-screenshot]: public/Pokedex.png
 
