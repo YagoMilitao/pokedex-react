@@ -1,7 +1,6 @@
 import { Card, CardMedia, CardHeader, Chip, CardActions, IconButton } from '@mui/material';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { StringForms } from './StringForms';
 import { PokemonDetail } from '../../pokemon/interfaces/PokemonDetail';
 
 interface PokedexCardProps {
