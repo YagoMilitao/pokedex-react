@@ -1,7 +1,7 @@
 import { Card, CardMedia, CardHeader, Chip, CardActions, IconButton } from '@mui/material';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
+import { StringForms } from './StringForms';
 import { PokemonDetail } from '../../pokemon/interfaces/PokemonDetail';
 
 interface PokedexCardProps {
@@ -35,7 +35,9 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
   function handleClick() {
     history.push(`/pokemon/${pokemon.name}`);
   }  
-  
+  function FirstLetterCaps(pokemonName: string): string{
+    return pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+}
   return (
     <Card onClick={handleClick} >
       <CardMedia
@@ -44,9 +46,12 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
       alt="Pokemon sprite"
     />
     <CardHeader
-      title={pokemon.name}
+      //const pokemonName = {pokemon.name.charAt(0).toUpperCase()+ pokemon.name.slice(1)}
+      //title={FirstLetterCaps()`#${pokemon.id}`}
+      title= {FirstLetterCaps(pokemon.name)+`  #${pokemon.id}`}
+      //subheader= {pokemon.id}
       subheader={pokemon.types.map((type)=> 
-        <Chip label={type.type.name} variant="outlined"/>)}
+        <Chip label={(type.type.name)} variant="outlined"/>)}
     />
     <CardActions disableSpacing>
       <IconButton>
