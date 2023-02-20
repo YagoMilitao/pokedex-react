@@ -36,7 +36,17 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
     }
   );
   const selectedPokemonDetails = data;
+  const?: string;
+  const abilities = selectedPokemonDetails?.abilities.map((ability) =>
+    ability.ability.name.toLocaleUpperCase()).join(', ')
 
+    function FirstLetterCapsPokemonDetailsAbilities(abilities: string): string{
+      return abilities = abilities.charAt(0).toUpperCase() + abilities.slice(1)
+    }
+  
+  function FirstLetterCapsPokemonDetailsName(selectedPokemonDetails: string): string{
+    return selectedPokemonDetails = selectedPokemonDetails.charAt(0).toUpperCase() + selectedPokemonDetails.slice(1)
+  }
   /*useEffect(() => {
     getPokemonDetails(name).then((res) =>{
       setSelectedPokemonDetails(res);
@@ -71,13 +81,9 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
             {isRefetching && <LinearProgress />}
             <Container maxWidth = "lg">
               <Box mt={2}>
-                <img width='100%' height='auto'src={selectedPokemonDetails?.sprites.front_default} alt=""/>
+                <img width='50%' height='auto'src={selectedPokemonDetails?.sprites.other?.['official-artwork'].front_default} alt=""/>
               </Box>
               <Box>
-                <Typography variant='h2'>
-                  Nome:
-                {selectedPokemonDetails?.name.toLocaleUpperCase()}
-              </Typography>
               </Box>
               <Box display="flex" flexDirection='row'>
                 <Typography>
@@ -110,7 +116,8 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
                 <Typography>
                   Habilidades:
                   {selectedPokemonDetails?.abilities.map((ability) =>
-                    ability.ability.name.toLocaleUpperCase()).join(', ')}
+                    ability.ability.name.charAt(0).toUpperCase()+ ability.ability.name.slice(1)()).join(', ')}
+                 
                 </Typography>
               </Box>
 
