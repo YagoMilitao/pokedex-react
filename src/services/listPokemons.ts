@@ -1,4 +1,4 @@
-import { PokemonDetail } from './../interfaces/PokemonDetail';
+import { PokemonDetail } from '../interfaces/PokemonDetail';
 import axios from "axios";
 import { getPokemonDetails } from './getPokemonDetails';
 

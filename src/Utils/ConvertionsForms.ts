@@ -1,9 +1,9 @@
-export const lbsToKgConvertion=(hectograms : number): number => {
+export const lbsToKgConvertion=(hectograms : number): string => {
     const kg = hectograms /10;
-    return Number(kg.toFixed(2));
+    return kg.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })+"kg";
 };
 
 export const feetToMeterConvertion=(decimetres: number): string => {
     const meters = decimetres /10;
-    return meters.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    return meters.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })+"m";
 };

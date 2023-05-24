@@ -1,14 +1,3 @@
-//Todos os atributos de um pokemon vindo da API
-
-// To parse this data:
-//
-//   import { Convert,PokemonDetail } from "./file";
-//
-//   constPokemonDetail = Convert.toPokemonDPokemonDetail(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
-
 export interface PokemonDetail {
     abilities:                Ability[];
     base_experience:          number;

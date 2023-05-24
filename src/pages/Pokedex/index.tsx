@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { listPokemons } from '../pokemon/services/listPokemons';
+import { listPokemons } from '../../services/listPokemons';
 import { AppBar, Box, Button, CircularProgress, Container, Grid, IconButton, LinearProgress, Toolbar, Typography } from '@mui/material';
-import { PokedexCard } from './components/PokedexCard';
+import { PokedexCard } from '../PokedexCard';
 import { useQuery } from 'react-query';
 import MenuIcon from '@mui/icons-material/Menu';
-import { PokemonDetail } from '../pokemon/interfaces/PokemonDetail';
+import { PokemonDetail } from '../../interfaces/PokemonDetail';
 import { More } from '@mui/icons-material';
 
 interface PokedexProps {

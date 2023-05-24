@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route} from "react-router-dom";
-import { Pokedex } from './pokedex/Pokedex';
-import { PokemonDetails } from './pokemon/PokemonDetails';
+import { Pokedex } from './pages/Pokedex';
+import { PokemonDetails } from './pages/PokemonDetail';
 
 interface RoutesProps {
 }
